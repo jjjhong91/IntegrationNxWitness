@@ -18,6 +18,7 @@ namespace IntegrationNxWitness
         {
             services.AddControllersWithViews();
             services.AddSwaggerGen();
+            services.AddHttpClient();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
