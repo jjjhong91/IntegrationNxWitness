@@ -97,8 +97,8 @@ namespace IntegrationNxWitness.AddControllersWithViews
             var realm = nonce.Reply.Realm;
 
             var digest = MD5_Hex($"{_username.ToLower()}:{realm}:{_password}");
-            var partial_ha2 = MD5_Hex("Get:");
-            var simplified_ha2 = MD5_Hex($"digest:{nonceValue}:{partial_ha2}");
+            var partial_ha2 = MD5_Hex("GET:");
+            var simplified_ha2 = MD5_Hex($"{digest}:{nonceValue}:{partial_ha2}");
             var auth_digest = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{_username.ToLower()}:{nonceValue}:{simplified_ha2}"));
             return auth_digest;
         }
